@@ -25,10 +25,11 @@ def caesar_cipher_2key(message, key1, key2, choice):
 
     if choice == 'e':
         new_alphabet = create_alphabet(key2)
+        print("New alphabet:", new_alphabet)
         encrypted_string = ""
         for char in message:
             if char != " ":
-                e = (alphabet.index(char) + key1) % 26
+                e = (new_alphabet.index(char) + key1) % 26
                 encrypted_string = encrypted_string + new_alphabet[e]
         return encrypted_string
 
@@ -38,7 +39,7 @@ def caesar_cipher_2key(message, key1, key2, choice):
         for char in message:
             if char != " ":
                 d = (new_alphabet.index(char) - key1) % 26
-                decrypted_string = decrypted_string + alphabet[d]
+                decrypted_string = decrypted_string + new_alphabet[d]
         return decrypted_string
 
     else:
